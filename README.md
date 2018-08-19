@@ -36,8 +36,8 @@ Builds the "www" container used as a web server. The web server uses the officia
 ### www/id_rsa
 A private key used to authenticate to the Git server.
 
-### www/index.php
-A script to clone `ssh://admin@git/home/admin/admin` (using keys) and execute each resulting files.
+### www/src/index.php
+A script to clone `ssh://admin@git/home/admin/admin` (using keys) and execute each resulting files. The path `www/src/` is mounted as a volume to `/var/www/html/` in the "www" container. This was to make development easy and makes no operational difference now that the project is finished.
 
 ### git/Dockerfile
 Builds the "git" container used as a git repository. The container is based on the official `alpine:3.8` Alpine Linux server running OpenSSH and Git. The Dockerfile initializes the Git repository in `/home/admin/admin` and configures several items for certificate-based authentication.

@@ -30,8 +30,6 @@ curl -k https://localhost:443
 ### build.sh
 Similar to a Makefile, this shell script executes `docker network`, `docker build`, and `docker run` commands needed to get the environment entirely set up.
 
-The build script accepts SSH and HTTPS port assignments as command-line arguments.
-
 ### www/Dockerfile
 Builds the "www" container used as a web server. The web server uses the official `php:7.2-apache` Docker container as a base image. The Dockerfile configures SSL, installs Git, and sets a few features needed for certificated-based authentication.
 

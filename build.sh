@@ -3,7 +3,7 @@ docker network create --driver bridge wjholden-net
 docker stop www
 docker container rm www
 docker build --tag wjholden-www www/
-docker run --detach 443:443 --name www --network wjholden-net wjholden-www
+docker run --detach --publish 443:443 --name www --network wjholden-net wjholden-www
 
 docker stop git
 docker container rm git

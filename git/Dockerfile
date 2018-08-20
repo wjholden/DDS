@@ -4,7 +4,7 @@ FROM alpine:3.8
 
 MAINTAINER wjholden
 
-RUN apk add --no-cache git openssh-server bash
+RUN apk add --no-cache git openssh-server
 RUN yes "empiredidnothingwrong" | adduser --home /home/admin --shell /bin/bash admin
 RUN mkdir /home/admin/admin && cd /home/admin/admin && git init --bare
 RUN chown -R admin /home/admin/admin

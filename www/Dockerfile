@@ -6,12 +6,13 @@ MAINTAINER wjholden
 
 EXPOSE 80 443
 
-RUN apt-get update && apt-get install -y ssl-cert iputils-ping git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y ssl-cert git && rm -rf /var/lib/apt/lists/*
 
 RUN a2ensite default-ssl && a2enmod ssl
 
 RUN printf "StrictHostKeyChecking no\nUserKnownHostsFile /dev/null\nLogLevel QUIET\nIdentityFile /id_rsa\n" >> /etc/ssh/ssh_config
 
+COPY ./src/index.php /var/www/html/index.php
 COPY ./id_rsa /id_rsa
 RUN chown www-data /id_rsa
 RUN chmod 600 /id_rsa

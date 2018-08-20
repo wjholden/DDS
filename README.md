@@ -52,3 +52,11 @@ A script to commit a few test files and demonstrate that the webserver is execut
 Test files that are automatically committed using the `test.sh` script.
 
 How's all that for a network guy who doesn't develop for the web? I'm pretty proud of all this. I welcome any feedback from this exercise!
+
+## For the impatient
+If you don't feel like building all this stuff you can retrieve canned images like this:
+```
+docker network create --driver bridge wjholden-net
+docker run --detach --publish 443:443 --name www --network wjholden-net wjholden/dds-www:2
+docker run --detach --publish 8022:22 --name git --network wjholden-net wjholden/dds-git:2
+```
